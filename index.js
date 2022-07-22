@@ -254,22 +254,20 @@ const col16 = column16.map((item) => item.id);
 //     console.log("done16");
 //     }
 
-// Play button function
+// function auxiliary non existing on the HTML tables
 
-// $("#play").on("click", function () {
-//   play();
-// });
+let column17 = [
+  { id: "td-01-17" },
+  { id: "td-02-17" },
+  { id: "td-03-17" },
+  { id: "td-04-17" },
+  { id: "td-05-17" },
+  { id: "td-06-17" },
+  { id: "td-07-17" },
+];
 
-// $("#stop").on("click", function () {
-//   sequencing.forEach((arr, i) => {
-//     setTimeout(() => {
-//       $(".shadowPlay").addClass("shadowPlay").stop();
-//       setInterval(function () {
-//         arr.forEach((id) => $("#" + id).removeClass("shadowPlay"));
-//       }, i * 1);
-//     });
-//   }, 1);
-// });
+const col17 = column17.map((item) => item.id);
+
 
 let sequencing = [
   col1,
@@ -288,62 +286,38 @@ let sequencing = [
   col14,
   col15,
   col16,
+  col17,
 ];
 
 $("#play").on("click", function () {
-  play("play");
+  arg = "0";
+  play(arg);
+  
 });
 
 $("#stop").on("click", function () {
-  play("stop");
-  // sequencing.forEach((arr, i) => {
-  //   setTimeout(() => {
-  //     $(".shadowPlay").addClass("shadowPlay").stop();
-  //     setInterval(function () {
-  //       arr.forEach((id) => $("#" + id).removeClass("shadowPlay"));
-  //     }, i * 1);
-  //   });
-  // }, 1);
+  play();
+
 });
 
-test-branch
-
 function play(arg) {
-  console.log("wdf")
-  if (arg == "stop") return;
-  if (arg == "play") {
+  if (arg === false) {
+    return; //stop the execution of function --------    NOT WORKING YET !!!!!
+  } else {
     sequencing.forEach((arr, i) => {
       setTimeout(() => {
-        console.log("saber", i);
+        if (i > 15) {
+          play();
+        }
         $(".shadowPlay").removeClass("shadowPlay");
-        // setInterval(function () {
-        arr.forEach((id) => $("#" + id).addClass("shadowPlay"));
-      }, i * 265);
+        arr.forEach(
+          (id) => $("#" + id).addClass("shadowPlay")
+          ),makeSound();;
+      }, i * 310);
     });
-  
-    // }, 265);
   }
 }
 
-
-
-// Play button function END
-
-//     // This loop is for outer array
-//     for (let i = 0;  i < sequencing.length; i++) {
-
-//         // console.log(sequencing[i]);
-
-//     // This loop is for inner-arrays
-//       for (var j = 0; j < sequencing[i].length; j++) {
-
-//         console.log(sequencing[j]);
-
-//         // Accessing each elements of inner-array
-//         $("#"+sequencing[i][j]).addClass("shadowPlay");
-
-//      }
-//    }
 
 // preset function
 
@@ -470,13 +444,55 @@ $("#btnreset").on("click", function clear() {
 
 // reset button function END
 
+
+let tomTom = [
+  { id: "td-02-01" },
+  { id: "td-02-02" },
+  { id: "td-02-03" },
+  { id: "td-02-04" },
+  { id: "td-02-05" },
+  { id: "td-02-06" },
+  { id: "td-02-07" },
+  { id: "td-02-08" },
+  { id: "td-02-09" },
+  { id: "td-02-10" },
+  { id: "td-02-11" },
+  { id: "td-02-12" },
+  { id: "td-02-13" },
+  { id: "td-02-14" },
+  { id: "td-02-15" },
+  { id: "td-02-16" },
+];
+
+const tom = tomTom.map((item) => item.id);
+
+let tom1 = new Audio("sounds/tom-1.mp3");
+
+
+function makeSound() {
+    tom.forEach((obj) => {
+      console.log(obj);
+          if ($("#" + obj ).hasClass("shadowPlay" && "userClickedButton")) {
+            tom1.play();
+          } else {
+            console.log("Not-Now");
+          }
+        }
+    );
+  
+}
+
+
+
+
+
 // Possible means of read internal value of the cells
 
 // function GetCellValues() {
-//     var table = document.getElementById("mytable");
-//     for (var r = 0, n = table.columns.length; r < n; r++) {
-//         for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
-//             alert(table.rows[r].cells[c].innerHTML);
+//     let table = document.getElementById("drumPlayer");
+//     for (let r = 0, n = table.columns.length; r < n; r++) {
+//         for (let c = 0, m = table.rows[r].cells.length; c < m; c++) {
+//             alert(table.rows[r].cells[c]);
 //         }
 //     }
 // }

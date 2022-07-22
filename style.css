@@ -1,29 +1,35 @@
 body{
-    background-color: rgb(96, 167, 208);
+    background-color: rgb(0, 0, 0);
     text-align: center;
+    color: #ffffff;
 }
 
-h1{
 
-    margin: 25px;
+.title{
+  display: block;
 }
 
 
 .btnSpace{
-    margin: 0 1% 0;
+    margin: 7% 1% 1% 1%;
+}
+
+.oculto{
+  color: black;
 }
 
 .btnPlayer{
 
-margin: 30px
+margin: 10px
 
 }
 
+
 .drumPlayer{
-background-color:rgb(178, 211, 231) ;
-padding: 6%;
+background-color:rgba(255, 0, 0, 0.821);
+padding: 2%;
 width: 55%;
-margin: 8% auto 5% auto;
+margin: 2% auto 1% auto;
 }
 
 table {
@@ -34,7 +40,7 @@ table {
   }
   
   td, th {
-    border: 1px solid #ffffff;
+    border: 1.5px solid #000000;
     text-align: center;
     padding: 8px;
 
@@ -43,27 +49,24 @@ table {
 
   .userClickedButton{
 
-    background-color: purple;
-    box-shadow: 0 0 20px white;
+    background-color: rgba(0, 0, 0, 0.774);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.748);
     /* background-color: grey; */
   }
 
-.up{
-    color: blue;
-}
 
 /* pulse Yellow shadow  */
 
 .shadowPlay  {
   
-  box-shadow: 0 0 0 0 rgb(0, 0, 0);
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
   animation: pulse-yellow 2s infinite;
 }
 
 @keyframes pulse-yellow {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
   }
   
   70% {
@@ -76,7 +79,97 @@ table {
     box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
   }
 }
-  
+
+/* pulse Yellow shadow END */
   
 
+/* curved tittle */
+
+.curved{
+text-align: center;
+padding-top: 22px;
+font-size: 4.5rem;
+color: rgb(255, 255, 0);
+font-family: 'New Rocker', cursive;
+}
+
+.shadowPlayTitle{
+
+  animation: pulse-yellow 2s infinite;
+}
+
+@keyframes pulse-yellow {
+  0% {
+    transform: scale(0.95);
+  }
+  
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 177, 66, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
+  }
+}
+  
+.title1 {
+  transform: translate(20px, 85px) rotate(-30deg);
+}
+
+.title2 {
+  transform: translate(13px, 60px) rotate(-25deg);
+}
+
+.title3 {
+  transform: translate(6px, 40px) rotate(-20deg);
+}
+
+.title4 {
+  transform: translate(3px, 23px) rotate(-15deg);
+}
+
+.title5 {
+  transform: translate(2px, 14px) rotate(-10deg);
+}
+
+.title6 {
+  transform: translate(1px, 8px) rotate(-5deg);
+}
+
+.title7 {
+  transform: translate(0px, 5px) rotate(0deg);
+}
+
+.title8 {
+  transform: translate(-1px, 8px) rotate(5deg);
+}
+
+.title9 {
+  transform: translate(-2px, 14px) rotate(10deg);
+}
+
+.title10 {
+  transform: translate(-3px, 25px) rotate(15deg);
+}
+
+.title11{
+  transform: translate(-6px, 40px) rotate(20deg);
+}
+
+.title12 {
+  transform: translate(-14px, 60px) rotate(25deg);
+}
+
+.title13 {
+  transform: translate(-20px, 80px) rotate(30deg);
+}
+
+
+span {
+  display: inline-block;
+}
+
+/* curved title END */
   
