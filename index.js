@@ -296,12 +296,13 @@ $("#play").on("click", function () {
 });
 
 $("#stop").on("click", function () {
+  arg = "1";
   play();
 
 });
 
 function play(arg) {
-  if (arg === false) {
+  if (arg === "1") {
     return; //stop the execution of function --------    NOT WORKING YET !!!!!
   } else {
     sequencing.forEach((arr, i) => {
