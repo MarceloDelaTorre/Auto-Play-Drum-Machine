@@ -289,33 +289,38 @@ let sequencing = [
   col17,
 ];
 
+let keepPlayig;
+
 $("#play").on("click", function () {
-  arg = "0";
-  play(arg);
-  
+  play(sequencing);
+  keepPlayig = true
 });
 
 $("#stop").on("click", function () {
-  play();
-
+  play([]);
+  keepPlayig = false
 });
 
-function play(arg) {
-  if (arg === false) {
-    return; //stop the execution of function --------    NOT WORKING YET !!!!!
-  } else {
-    sequencing.forEach((arr, i) => {
-      setTimeout(() => {
-        if (i > 15) {
-          play();
-        }
-        $(".shadowPlay").removeClass("shadowPlay");
-        arr.forEach(
-          (id) => $("#" + id).addClass("shadowPlay")
-          ),makeSound();;
-      }, i * 310);
-    });
+function keepPlayigMusic() {
+  if (keepPlayig === false) {
+    play([])
+    return;
   }
+  return play(sequencing);
+}
+
+function play(defaultSequecing) {
+  defaultSequecing.forEach((arr, i) => {
+    setTimeout(() => {
+      if (i > 15) {
+        keepPlayigMusic();
+      }
+      $(".shadowPlay").removeClass("shadowPlay");
+      arr.forEach(
+        (id) => $("#" + id).addClass("shadowPlay")
+      ), makeSound();;
+    }, i * 310);
+  });
 }
 
 
@@ -417,7 +422,9 @@ $("select").on("change", function () {
     for (i = 0; i < hHop.length; i++) {
       $("#" + hHop[i]).addClass("userClickedButton");
     }
-  } else console.log("error");
+  } else {
+    // console.log("error");
+  }
 });
 
 // preset function END
@@ -427,7 +434,7 @@ $("select").on("change", function () {
 $("td").on("click", function () {
   let userChosenDiv = $(this).attr("id");
 
-  console.log(userChosenDiv);
+  // console.log(userChosenDiv);
 
   $("#" + userChosenDiv).toggleClass("userClickedButton");
 });
@@ -470,16 +477,16 @@ let tom1 = new Audio("sounds/tom-1.mp3");
 
 
 function makeSound() {
-    tom.forEach((obj) => {
-      console.log(obj);
-          if ($("#" + obj ).hasClass("shadowPlay" && "userClickedButton")) {
-            tom1.play();
-          } else {
-            console.log("Not-Now");
-          }
-        }
-    );
-  
+  tom.forEach((obj) => {
+    // console.log(obj);
+    if ($("#" + obj).hasClass("shadowPlay" && "userClickedButton")) {
+      tom1.play();
+    } else {
+      // console.log("Not-Now");
+    }
+  }
+  );
+
 }
 
 
