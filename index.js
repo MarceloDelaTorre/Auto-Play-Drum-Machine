@@ -290,8 +290,8 @@ let sequencing = [
 ];
 
 $("#play").on("click", function () {
-  arg = "0";
-  play(arg);
+ play();
+
   
 });
 
@@ -313,8 +313,8 @@ function play(arg) {
         $(".shadowPlay").removeClass("shadowPlay");
         arr.forEach(
           (id) => $("#" + id).addClass("shadowPlay")
-          ),makeSound();;
-      }, i * 310);
+          );
+      }, i * 210);
     });
   }
 }
@@ -445,57 +445,313 @@ $("#btnreset").on("click", function clear() {
 
 // reset button function END
 
-
-let tomTom = [
-  { id: "td-02-01" },
-  { id: "td-02-02" },
-  { id: "td-02-03" },
-  { id: "td-02-04" },
-  { id: "td-02-05" },
-  { id: "td-02-06" },
-  { id: "td-02-07" },
-  { id: "td-02-08" },
-  { id: "td-02-09" },
-  { id: "td-02-10" },
-  { id: "td-02-11" },
-  { id: "td-02-12" },
-  { id: "td-02-13" },
-  { id: "td-02-14" },
-  { id: "td-02-15" },
-  { id: "td-02-16" },
-];
-
-const tom = tomTom.map((item) => item.id);
-
-let tom1 = new Audio("sounds/tom-1.mp3");
-
-
-function makeSound() {
-    tom.forEach((obj) => {
-      console.log(obj);
-          if ($("#" + obj ).hasClass("shadowPlay" && "userClickedButton")) {
-            tom1.play();
-          } else {
-            console.log("Not-Now");
-          }
-        }
-    );
-  
-}
+//  Play sound and observer for hi-Hat-Foot row START 
 
 
 
+let HatFoot1 = new Audio("sounds/Hi-Hat-Foot.mp3");
+
+  var config = { attributes : true, };
+
+$(".Hat-Foot1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "Hat-Foot1 userClickedButton shadowPlay") {
+        HatFoot1.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for hi-Hat-Foot row END 
+
+//  Play sound and observer for Tom-Tom row START 
 
 
-// Possible means of read internal value of the cells
+let tom1 = new Audio("sounds/tom-tom.mp3");
 
-// function GetCellValues() {
-//     let table = document.getElementById("drumPlayer");
-//     for (let r = 0, n = table.columns.length; r < n; r++) {
-//         for (let c = 0, m = table.rows[r].cells.length; c < m; c++) {
-//             alert(table.rows[r].cells[c]);
-//         }
-//     }
+  var config = { attributes : true, };
+
+$(".tomTom1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "tomTom1 userClickedButton shadowPlay") {
+        tom1.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for Tom-Tom row END 
+
+//  Play sound and observer for floor-Tom row START 
+
+
+let flTom1 = new Audio("sounds/floor-tom.mp3");
+
+  var config = { attributes : true, };
+
+$(".floorTom1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "floorTom1 userClickedButton shadowPlay") {
+        flTom1.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for floor-Tom row END
+
+// Play sound and observer for ride-Cymbal row START 
+
+
+let ridecymbal = new Audio("sounds/ride-Cymbal.mp3");
+
+  var config = { attributes : true, };
+
+$(".rideCymbal1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "rideCymbal1 userClickedButton shadowPlay") {
+        ridecymbal.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for ride-Cymbal row END
+
+// Play sound and observer for Hi-Hat row START 
+
+
+let hiHat = new Audio("sounds/Hi-hat.mp3");
+
+  var config = { attributes : true, };
+
+$(".Hi-Hat1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "Hi-Hat1 userClickedButton shadowPlay") {
+        hiHat.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for Hi-Hat row END
+
+// Play sound and observer for Snare Drum row START 
+
+
+let sneDrum = new Audio("sounds/Snare-Drum.mp3");
+
+  var config = { attributes : true, };
+
+$(".snareD1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "snareD1 userClickedButton shadowPlay") {
+        sneDrum.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for Snare drum  row END
+
+// Play sound and observer for Bass Drum row START 
+
+
+let bassDrum1 = new Audio("sounds/bass-Drum.mp3");
+
+  var config = { attributes : true, };
+
+$(".bDrum1").each(function () {
+  var target = this;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      // console.log(mutation)
+      if (target.className == "bDrum1 userClickedButton shadowPlay") {
+        bassDrum1.cloneNode(true).play();
+      } else {
+        console.log(target.className);
+        console.log(mutation);
+      }
+    });
+    
+  });
+  observer.observe(target, config);
+});
+
+//  Play sound and observer for Bass Drum  row END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if ($(".tomTom1").hasClass("userClickedButton" && "shadowPlay")) {
+//   tom1.play();
+// }else {
+// console.log("Not now.");
 // }
 
-// Possible means of read internal value of the cells
+// }
+  
+
+//     const observer = new MutationObserver(entries =>{
+//       entries.forEach(function (entries){
+//            console.log(entries)
+//          });
+//       console.log(entries)
+//     })
+
+//     const classAdded = document.getElementById("td-02-01", "td-02-02", "td-02-03", "td-02-04", "td-02-05", "td-02-06", "td-02-07", "td-02-08", "td-02-09", "td-02-10", "td-02-11", "td-02-12", "td-02-13", "td-02-14", "td-02-15", "td-02-16");
+
+
+//     // console.log(classAdded);
+
+//     observer.observe(classAdded, { attributes : true, attributeOldValue : true});
+// // console.log(classAdded);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // tom.forEach((obj) => {
+    //   let element = "#"+obj;
+    //    document.getElementById(element);
+    //    const classes = element.classList;
+    //    if (classes.contains(".userClickedButton" && ".shadowPlay")) {
+    //      tom1.play();
+    //    }else {
+    //    console.log("Not now.");
+    //   }
+    //     });
+
+
+    // function makeSound(){
+//   tom.forEach((obj) => {
+//     let element = "#" + obj;
+//     document.getElementById(element);
+
+//     console.log(element);
+
+//    if ($(element ).hasClass("userClickedButton" && "shadowPlay")===true){
+//      console.log("Play Sound");
+//     }else{
+//     console.log("nothing here");
+//     }
+
+//   });
+
+// }
+
+// element = tom.forEach((obj) => {
+//     obj = "#" + obj;
+
+//     console.log(obj);
+//   });
+
+
+
+// function makeSound(){
