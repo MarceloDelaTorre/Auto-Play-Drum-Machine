@@ -297,6 +297,7 @@ $("#play").on("click", function () {
 });
 
 $("#stop").on("click", function () {
+  arg = "1";
   play([]);
   keepPlayig = false
 });
@@ -471,10 +472,10 @@ let tomTom = [
   { id: "td-02-16" },
 ];
 
-const tom = tomTom.map((item) => item.id);
 
 let tom1 = new Audio("sounds/tom-1.mp3");
 
+  var config = { attributes : true, };
 
 function makeSound() {
   tom.forEach((obj) => {
@@ -495,13 +496,3 @@ function makeSound() {
 
 // Possible means of read internal value of the cells
 
-// function GetCellValues() {
-//     let table = document.getElementById("drumPlayer");
-//     for (let r = 0, n = table.columns.length; r < n; r++) {
-//         for (let c = 0, m = table.rows[r].cells.length; c < m; c++) {
-//             alert(table.rows[r].cells[c]);
-//         }
-//     }
-// }
-
-// Possible means of read internal value of the cells
