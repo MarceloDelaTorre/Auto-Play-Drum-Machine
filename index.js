@@ -289,35 +289,39 @@ let sequencing = [
   col17,
 ];
 
-$("#play").on("click", function () {
- play();
+let keepPlaying;
 
-  
+$("#play").on("click", function () {
+  play(sequencing);
+  keepPlaying = true
 });
 
 $("#stop").on("click", function () {
   arg = "1";
-  play();
-
+  play([]);
+  keepPlaying = false
 });
 
-function play(arg) {
-  if (arg === "1") {
-    return; //stop the execution of function --------    NOT WORKING YET !!!!!
-  } else {
-    sequencing.forEach((arr, i) => {
-      setTimeout(() => {
-        if (i > 15) {
-          play();
-        }
-        $(".shadowPlay").removeClass("shadowPlay");
-        arr.forEach(
-          (id) => $("#" + id).addClass("shadowPlay")
-          );
-      }, i * 210);
-    });
+function keepPlayingMusic() {
+  if (keepPlaying === false) {
+    play([])
+    return;
   }
+  return play(sequencing);
 }
+
+function play(defaultSequencing) {
+  defaultSequencing.forEach((arr, i) => {
+    setTimeout(() => {
+      if (i > 15) {
+        keepPlayingMusic();
+      }
+      $(".shadowPlay").removeClass("shadowPlay");
+      arr.forEach(
+        (id) => $("#" + id).addClass("shadowPlay")
+      ), makeSound();;
+    }, i * 310);
+  });
 
 
 // preset function
